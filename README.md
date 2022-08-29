@@ -1,6 +1,6 @@
-# mule-4-healthcheck-connector
+# HealthCheck Connector
 
-Drop-in Mule 4 connector that provide a set of operations that can perform an healtcheck to a different set of system as:
+Drop-in Mule 4 connector that provides a set of operations that can perform a health check to a different set of systems as:
 - HTTP services
 - Databases
 - JMS Brokers
@@ -17,7 +17,7 @@ mvn -f connector/pom.xml clean deploy
 
 ## 2. Import the connector
 
-In order to use the connector in a Mule 4 Project you can import it through the "Search in Exchange" tab present in the Mule Palette or add the connector as a maven dependency
+In order to use the connector in a Mule 4 Project, you can import it through the "Search in Exchange..." tab in Mule Palette or add the connector as a maven dependency
 
 ```xml
 <dependency>
@@ -31,11 +31,11 @@ In order to use the connector in a Mule 4 Project you can import it through the 
 # Use the connector
 
 ## Sample app
-A sample Mule 4 application that show how the connector work is available here 
+A sample Mule 4 application that shows how the connector works is available here:
 [sample-app](/sample-app/README.md).
 
 ## Healthcheck object
-All the processor available will output the following object as a Java Class.
+All the available processors (operations?) will output the following object as a Java Class.
 You can see it also with DataSense.
 
 ```java
@@ -60,7 +60,7 @@ private List<HealthcheckError> dependenciesErrors;
 
 ### Overview: Example flow
 
-To give an overview of how the connector works we can use as an example one of the flow of the sample-app for the 
+To give an overview of how the connector works, we can use as an example one of the flows of the sample-app
 
 for the system-api called **sapi-1** that wraps an external HTTP service called "ext-system-1".
 
@@ -95,7 +95,7 @@ Code:
 	</flow>
 ```
 
-1. The healthcheck:http processor perform a call to the ext-system and return as ouput in the payload a Java Object:
+1. The healthcheck:http operation performs a call to the ext-system and returns as output in the payload a Java Object:
 ```java
 Healthcheck{
     name='ext-system-1', 
@@ -107,7 +107,7 @@ Healthcheck{
     dependenciesErrors=null}
 ```
 
-2. Then the output is passed as input for dependencies field of the healthcheck:create-healthcheck-object that will return as output in the payload a Java Object:
+2. Then the output is passed as input for the dependencies field of the healthcheck:create-healthcheck-object that will return as output in the payload a Java Object:
 ```java
 ## application/java
 Healthcheck{
@@ -130,7 +130,7 @@ Healthcheck{
 }
 ```
 
-3. In the last processor we format the output using a dataweave utility functions provided with the connector that format the output.
+3. In the last processor, we format the output using a dataweave utility function provided with the connector that formats the output.
 
 ```dwl
 %dw 2.0
@@ -164,3 +164,12 @@ formattedHealtcheck(payload)
 }
 
 ```
+
+
+
+
+
+
+
+
+
