@@ -1,4 +1,4 @@
-# HealthCheck Connector
+# mule-4-healthcheck-connector
 
 Drop-in Mule 4 connector that provide a set of operations that can perform an healtcheck to a different set of system as:
 - HTTP services
@@ -164,12 +164,3 @@ formattedHealtcheck(payload)
 }
 
 ```
-
-
-
-
-
-
-
-
-
